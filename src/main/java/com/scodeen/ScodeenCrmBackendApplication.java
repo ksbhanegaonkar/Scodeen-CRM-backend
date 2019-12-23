@@ -1,4 +1,4 @@
-package com.scodeen.crm.ScodeenCRMBackend;
+package com.scodeen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
