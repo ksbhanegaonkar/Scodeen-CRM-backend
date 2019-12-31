@@ -2,12 +2,15 @@ package com.scodeen.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name = "COUNTRY")
-public class Country extends BaseIdEntity{
+public class Country extends CommonAuditColumns{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "COUNYRY_ID")
 	private int countryId;
 	@Column(name = "COUNTRY_NAME")

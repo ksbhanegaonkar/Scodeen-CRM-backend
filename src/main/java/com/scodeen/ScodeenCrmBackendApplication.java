@@ -7,13 +7,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.scodeen.entity.Batch;
 import com.scodeen.entity.CRMUser;
 import com.scodeen.entity.City;
 import com.scodeen.entity.Country;
+import com.scodeen.entity.Course;
 import com.scodeen.entity.State;
+import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
 import com.scodeen.repository.CityRepo;
 import com.scodeen.repository.CountryRepo;
+import com.scodeen.repository.CourseRepo;
 import com.scodeen.repository.StateRepo;
 import com.scodeen.repository.TestUserRepo;
 
@@ -30,6 +34,10 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 	StateRepo stateRepo;
 	@Autowired
 	CountryRepo countryRepo;
+	@Autowired
+	BatchRepo batchRepo;
+	@Autowired
+	CourseRepo courseRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ScodeenCrmBackendApplication.class, args);
@@ -92,8 +100,32 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		crmUser.setModifiedBy(15);
 //		crmUserRepo.save(crmUser);
 		
-		CRMUser user = crmUserRepo.getUserByUserId(27);
-		System.out.println(user);
+//		CRMUser user = crmUserRepo.getUserByUserId(27);
+//		System.out.println(user);
+		
+//		Batch batch = new Batch();
+//		batch.setCourseId(2);
+//		batch.setBatchName("Test batch");
+//		batch.setBatchSyllabus("Test syllabus");
+//		batch.setBatchDescription("Test description");
+//		batch.setRemarks("Very good");
+//		batch.setCreatedOn(new Date(System.currentTimeMillis()));
+//		batch.setModifiedOn(new Date(System.currentTimeMillis()));
+//		batch.setCreatedBy(15);
+//		batch.setModifiedBy(15);
+//		batchRepo.save(batch);
+		
+		Course course = new Course();
+		course.setCourseName("Test course");
+		course.setCourseSyllabus("Test course syllabus");
+		course.setCourseDescription("Test course description");
+		course.setRemarks("Very good");
+		course.setCreatedOn(new Date(System.currentTimeMillis()));
+		course.setModifiedOn(new Date(System.currentTimeMillis()));
+		course.setCreatedBy(15);
+		course.setModifiedBy(15);
+		courseRepo.save(course);
+		
 
 	}
 

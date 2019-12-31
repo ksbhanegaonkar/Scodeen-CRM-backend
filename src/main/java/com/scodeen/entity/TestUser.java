@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_tbl")
-public class TestUser extends BaseIdEntity {
+public class TestUser extends CommonAuditColumns {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

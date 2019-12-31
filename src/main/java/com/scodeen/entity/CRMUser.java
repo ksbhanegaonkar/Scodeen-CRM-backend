@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -11,8 +13,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CRM_USER")
-public class CRMUser extends BaseIdEntity{
+public class CRMUser extends CommonAuditColumns{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
 	int userId;
 	@Column(name="FIRST_NAME")

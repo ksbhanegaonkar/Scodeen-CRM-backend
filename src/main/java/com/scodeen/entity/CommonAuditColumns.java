@@ -9,11 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class BaseIdEntity {
+public class CommonAuditColumns {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	protected int id;
 	@Column(name = "CREATED_ON")
 	private Date createdOn;
 	@Column(name = "CREATED_BY")
@@ -25,9 +22,7 @@ public class BaseIdEntity {
 	@Column(name = "REMARKS")
 	private String remarks;
 
-//	public int getId() {
-//		return id;
-//	}
+
 
 	public Date getCreatedOn() {
 		return createdOn;
