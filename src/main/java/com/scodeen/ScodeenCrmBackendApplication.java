@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.scodeen.entity.CandidateDetails;
+import com.scodeen.entity.PaymentDetails;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
@@ -140,26 +141,38 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		applicationFeature.setModifiedBy(15);
 //		featureRepo.save(applicationFeature);
 
-		CandidateDetails candidateDetails = new CandidateDetails();
-		candidateDetails.setFirstName("Kedar");
-		candidateDetails.setLastName("Bhanegaonakr");
-		candidateDetails.setMiddleName("Sudhir");
-		candidateDetails.setCourseId(2);
-		candidateDetails.setBatchId(2);
-		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
-		candidateDetails.setEmail("testmail");
-		candidateDetails.setCityId(2);
-		candidateDetails.setIsRegistered(0);
-		candidateDetails.setIsWorking(0);
-		candidateDetails.setWorkingField(0);
-		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
-		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
-		candidateDetails.setRemarks("Very good");
-		candidateDetails.setCreatedOn(new Date(System.currentTimeMillis()));
-		candidateDetails.setModifiedOn(new Date(System.currentTimeMillis()));
-		candidateDetails.setCreatedBy(15);
-		candidateDetails.setModifiedBy(15);
-		candidateDetailsRepo.save(candidateDetails);
+//		CandidateDetails candidateDetails = new CandidateDetails();
+//		candidateDetails.setFirstName("Kedar");
+//		candidateDetails.setLastName("Bhanegaonakr");
+//		candidateDetails.setMiddleName("Sudhir");
+//		candidateDetails.setCourseId(2);
+//		candidateDetails.setBatchId(2);
+//		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
+//		candidateDetails.setEmail("testmail");
+//		candidateDetails.setCityId(2);
+//		candidateDetails.setIsRegistered(0);
+//		candidateDetails.setIsWorking(0);
+//		candidateDetails.setWorkingField(0);
+//		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
+//		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
+//		candidateDetails.setRemarks("Very good");
+//		candidateDetails.setCreatedOn(new Date(System.currentTimeMillis()));
+//		candidateDetails.setModifiedOn(new Date(System.currentTimeMillis()));
+//		candidateDetails.setCreatedBy(15);
+//		candidateDetails.setModifiedBy(15);
+//		candidateDetailsRepo.save(candidateDetails);
+		
+		PaymentDetails paymentDetails = new PaymentDetails();
+		paymentDetails.setCandidateId(2);
+		paymentDetails.setBatchId(1);
+		paymentDetails.setCourseId(2);
+		paymentDetails.setPaymentDate(new Date(System.currentTimeMillis()));
+		paymentDetails.setRemarks("Very good");
+		paymentDetails.setCreatedOn(new Date(System.currentTimeMillis()));
+		paymentDetails.setModifiedOn(new Date(System.currentTimeMillis()));
+		paymentDetails.setCreatedBy(15);
+		paymentDetails.setModifiedBy(15);
+		paymentDetailRepo.save(paymentDetails);
 
 		
 
