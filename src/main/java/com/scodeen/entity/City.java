@@ -1,7 +1,11 @@
 package com.scodeen.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "CITY")
 public class City extends BaseIdEntity{
 	@Column(name = "STATE_ID")
 	private int stateId;

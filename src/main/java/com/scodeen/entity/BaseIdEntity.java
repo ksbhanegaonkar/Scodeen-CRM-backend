@@ -14,15 +14,15 @@ public class BaseIdEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int id;
-	@Column(name="CREATED_ON")
+	@Column(name = "CREATED_ON")
 	private Date createdOn;
-	@Column(name="CREATED_BY")
+	@Column(name = "CREATED_BY")
 	private int createdBy;
-	@Column(name="MODFIED_ON")
+	@Column(name = "MODFIED_ON")
 	private Date modifiedOn;
-	//@Column(name="MODFIED_BY")
-	//private int modifiedBy;
-	@Column(name="REMARKS")
+	@Column(name = "MODFIED_BY")
+	private int modifiedBy;
+	@Column(name = "REMARKS")
 	private String remarks;
 
 	public int getId() {
@@ -61,16 +61,12 @@ public class BaseIdEntity {
 		this.remarks = remarks;
 	}
 
-	/*
-	 * public int getModifiedBy() { return modifiedBy; }
-	 * 
-	 * public void setModifiedBy(int modifiedBy) { this.modifiedBy = modifiedBy; }
-	 */
+	public int getModifiedBy() {
+		return modifiedBy;
+	}
 
-
-
-
-	
-	
+	public void setModifiedBy(int modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
 
 }
