@@ -76,7 +76,7 @@ public class JsonUtil {
 		candidateDetails.setCourseId(2);
 		candidateDetails.setBatchId(2);
 		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
-		candidateDetails.setEmail("testmail");
+		candidateDetails.setEmail(data.get("email").asText());
 		candidateDetails.setCityId(2);
 		candidateDetails.setIsRegistered(0);
 		candidateDetails.setIsWorking(0);
