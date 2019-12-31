@@ -25,7 +25,7 @@ public class CandidateDetails extends CommonAuditColumns{
 	@Column(name="MIDDLE_NAME")
 	private String middleName;
 	@Column(name="CONTACT_NUMBER")
-	private String contactNumber;
+	private Date contactNumber;
 	@Column(name="EMAIL")
 	private String email;
 	@Column(name="CITY_ID")
@@ -34,11 +34,11 @@ public class CandidateDetails extends CommonAuditColumns{
 	private int courseId;
 	@Column(name = "BATCH_ID")
 	private int batchId;
-	@Column(name = "IS_REGISTERED")
+	@Column(name = "IS_REGISTER")
 	private int isRegistered;
 	@Column(name = "IS_WORKING")
 	private int isWorking;
-	@Column(name = "WORKING_FIELD")
+	@Column(name = "WOKRING_FIELD")
 	private int workingField;
 	@Column(name = "REGISTER_DATE")
 	private Date registerDate;
@@ -82,11 +82,11 @@ public class CandidateDetails extends CommonAuditColumns{
 		this.middleName = middleName;
 	}
 
-	public String getContactNumber() {
+	public Date getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(String contactNumber) {
+	public void setContactNumber(Date contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 

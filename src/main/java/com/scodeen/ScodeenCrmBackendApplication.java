@@ -7,17 +7,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.scodeen.entity.Batch;
-import com.scodeen.entity.CRMUser;
-import com.scodeen.entity.City;
-import com.scodeen.entity.Country;
-import com.scodeen.entity.Course;
-import com.scodeen.entity.State;
+import com.scodeen.entity.CandidateDetails;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
+import com.scodeen.repository.CandidateDetailsRepo;
 import com.scodeen.repository.CityRepo;
 import com.scodeen.repository.CountryRepo;
 import com.scodeen.repository.CourseRepo;
+import com.scodeen.repository.FeatureRepo;
+import com.scodeen.repository.PaymentDetailRepo;
 import com.scodeen.repository.StateRepo;
 import com.scodeen.repository.TestUserRepo;
 
@@ -38,6 +36,12 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 	BatchRepo batchRepo;
 	@Autowired
 	CourseRepo courseRepo;
+	@Autowired
+	FeatureRepo featureRepo;
+	@Autowired
+	PaymentDetailRepo paymentDetailRepo;
+	@Autowired
+	CandidateDetailsRepo candidateDetailsRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ScodeenCrmBackendApplication.class, args);
@@ -115,16 +119,48 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		batch.setModifiedBy(15);
 //		batchRepo.save(batch);
 		
-		Course course = new Course();
-		course.setCourseName("Test course");
-		course.setCourseSyllabus("Test course syllabus");
-		course.setCourseDescription("Test course description");
-		course.setRemarks("Very good");
-		course.setCreatedOn(new Date(System.currentTimeMillis()));
-		course.setModifiedOn(new Date(System.currentTimeMillis()));
-		course.setCreatedBy(15);
-		course.setModifiedBy(15);
-		courseRepo.save(course);
+//		Course course = new Course();
+//		course.setCourseName("Test course");
+//		course.setCourseSyllabus("Test course syllabus");
+//		course.setCourseDescription("Test course description");
+//		course.setRemarks("Very good");
+//		course.setCreatedOn(new Date(System.currentTimeMillis()));
+//		course.setModifiedOn(new Date(System.currentTimeMillis()));
+//		course.setCreatedBy(15);
+//		course.setModifiedBy(15);
+//		courseRepo.save(course);
+		
+//		ApplicationFeature applicationFeature = new ApplicationFeature();
+//		applicationFeature.setFeatureName("Test feature");
+//		applicationFeature.setModuleName("Test module");
+//		applicationFeature.setRemarks("Very good");
+//		applicationFeature.setCreatedOn(new Date(System.currentTimeMillis()));
+//		applicationFeature.setModifiedOn(new Date(System.currentTimeMillis()));
+//		applicationFeature.setCreatedBy(15);
+//		applicationFeature.setModifiedBy(15);
+//		featureRepo.save(applicationFeature);
+
+		CandidateDetails candidateDetails = new CandidateDetails();
+		candidateDetails.setFirstName("Kedar");
+		candidateDetails.setLastName("Bhanegaonakr");
+		candidateDetails.setMiddleName("Sudhir");
+		candidateDetails.setCourseId(2);
+		candidateDetails.setBatchId(2);
+		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
+		candidateDetails.setEmail("testmail");
+		candidateDetails.setCityId(2);
+		candidateDetails.setIsRegistered(0);
+		candidateDetails.setIsWorking(0);
+		candidateDetails.setWorkingField(0);
+		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
+		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
+		candidateDetails.setRemarks("Very good");
+		candidateDetails.setCreatedOn(new Date(System.currentTimeMillis()));
+		candidateDetails.setModifiedOn(new Date(System.currentTimeMillis()));
+		candidateDetails.setCreatedBy(15);
+		candidateDetails.setModifiedBy(15);
+		candidateDetailsRepo.save(candidateDetails);
+
 		
 
 	}
