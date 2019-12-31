@@ -4,16 +4,20 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_tbl")
-public class TestUser extends BaseIdEntity{
-	
-	  @Column(name = "age")
-	  private int age;
-	  @Column(name = "name")
-	  private String name;
+public class TestUser extends BaseIdEntity {
 
-	  public TestUser() {
-	  
-	  }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected int id;
+
+	@Column(name = "age")
+	private int age;
+	@Column(name = "name")
+	private String name;
+
+	public TestUser() {
+
+	}
 
 	public int getAge() {
 		return age;
@@ -30,11 +34,5 @@ public class TestUser extends BaseIdEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	
-	  
-	  
-	  
-	  
 
 }

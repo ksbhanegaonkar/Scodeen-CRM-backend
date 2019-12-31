@@ -4,12 +4,17 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "CRM_USER")
 public class CRMUser extends BaseIdEntity{
-	
+	@Id
+	@Column(name = "USER_ID")
+	int userId;
 	@Column(name="FIRST_NAME")
 	private String firstName;
 	@Column(name="LAST_NAME")
@@ -26,7 +31,14 @@ public class CRMUser extends BaseIdEntity{
 	private String email;
 	@Column(name="CITY_ID")
 	private int cityId;
+	
+	@OneToOne
+	@JoinColumn(name = "CITY_ID", insertable = false,updatable = false)
+	private City city;
 
+	public int getUserId() {
+		return userId;
+	}
 
 	
 	public CRMUser(){
@@ -97,8 +109,16 @@ public class CRMUser extends BaseIdEntity{
 		this.cityId = cityId;
 	}
 
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
 
 
+	
 	
 	
 	

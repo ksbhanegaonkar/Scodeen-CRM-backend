@@ -11,9 +11,9 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class BaseIdEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected int id;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	protected int id;
 	@Column(name = "CREATED_ON")
 	private Date createdOn;
 	@Column(name = "CREATED_BY")
@@ -25,9 +25,9 @@ public class BaseIdEntity {
 	@Column(name = "REMARKS")
 	private String remarks;
 
-	public int getId() {
-		return id;
-	}
+//	public int getId() {
+//		return id;
+//	}
 
 	public Date getCreatedOn() {
 		return createdOn;
