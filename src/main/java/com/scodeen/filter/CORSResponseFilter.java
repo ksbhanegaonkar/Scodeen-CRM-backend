@@ -29,12 +29,12 @@ public class CORSResponseFilter implements Filter{
 		    res.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS");
 		    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Authorization,Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin,test");
 		    //res.setStatus(200);
-		    System.out.println("Request received...");
+		    System.out.println("Request received..."+req.getMethod());
+		    if("OPTIONS".equals(req.getMethod()))
+		    	return;
+		    
 		    chain.doFilter(request, res);
-
-
-	    
-
+		    return;
 		
 	}
 
