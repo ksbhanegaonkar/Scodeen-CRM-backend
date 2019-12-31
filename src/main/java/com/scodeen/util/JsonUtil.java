@@ -1,6 +1,7 @@
 package com.scodeen.util;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.scodeen.entity.CandidateDetails;
 
 public class JsonUtil {
 	
@@ -65,7 +67,30 @@ public class JsonUtil {
 	
 
 	
-	
+	public static CandidateDetails getCandidateDetailsFromRequest(ObjectNode data) {
+		CandidateDetails candidateDetails = new CandidateDetails();
+		
+		candidateDetails.setFirstName(data.get("fname").asText());
+		candidateDetails.setLastName(data.get("lname").asText());
+		candidateDetails.setMiddleName(data.get("mname").asText());
+		candidateDetails.setCourseId(2);
+		candidateDetails.setBatchId(2);
+		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
+		candidateDetails.setEmail("testmail");
+		candidateDetails.setCityId(2);
+		candidateDetails.setIsRegistered(0);
+		candidateDetails.setIsWorking(0);
+		candidateDetails.setWorkingField(0);
+		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
+		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
+		candidateDetails.setRemarks("Very good");
+		candidateDetails.setCreatedOn(new Date(System.currentTimeMillis()));
+		candidateDetails.setModifiedOn(new Date(System.currentTimeMillis()));
+		candidateDetails.setCreatedBy(15);
+		candidateDetails.setModifiedBy(15);
+		
+		return candidateDetails;
+	}
 
 
 	

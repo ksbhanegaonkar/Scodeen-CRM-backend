@@ -12,9 +12,5 @@ public class CRMUserController {
 	@Autowired
 	private CRMUserService crmUserService;
 	
-    @GetMapping("/addcrmuser")
-    public String registerCandidate() {
-    	crmUserService.testAdUser();
-        return "Success";    
-        }
+
 }

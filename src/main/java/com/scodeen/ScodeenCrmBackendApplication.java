@@ -162,17 +162,17 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		candidateDetails.setModifiedBy(15);
 //		candidateDetailsRepo.save(candidateDetails);
 		
-		PaymentDetails paymentDetails = new PaymentDetails();
-		paymentDetails.setCandidateId(2);
-		paymentDetails.setBatchId(1);
-		paymentDetails.setCourseId(2);
-		paymentDetails.setPaymentDate(new Date(System.currentTimeMillis()));
-		paymentDetails.setRemarks("Very good");
-		paymentDetails.setCreatedOn(new Date(System.currentTimeMillis()));
-		paymentDetails.setModifiedOn(new Date(System.currentTimeMillis()));
-		paymentDetails.setCreatedBy(15);
-		paymentDetails.setModifiedBy(15);
-		paymentDetailRepo.save(paymentDetails);
+//		PaymentDetails paymentDetails = new PaymentDetails();
+//		paymentDetails.setCandidateId(2);
+//		paymentDetails.setBatchId(1);
+//		paymentDetails.setCourseId(2);
+//		paymentDetails.setPaymentDate(new Date(System.currentTimeMillis()));
+//		paymentDetails.setRemarks("Very good");
+//		paymentDetails.setCreatedOn(new Date(System.currentTimeMillis()));
+//		paymentDetails.setModifiedOn(new Date(System.currentTimeMillis()));
+//		paymentDetails.setCreatedBy(15);
+//		paymentDetails.setModifiedBy(15);
+//		paymentDetailRepo.save(paymentDetails);
 
 		
 
