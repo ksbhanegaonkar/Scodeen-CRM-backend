@@ -1,7 +1,8 @@
 package com.scodeen.controller;
 
+import javax.ws.rs.core.MediaType;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ public class CandidateDetailsController {
 	@Autowired
 	CandidateDetailsService candidateDetailsService;
 	
-    @PostMapping("/registercandidate")
+    @PostMapping(value = "/registercandidate",consumes = MediaType.APPLICATION_JSON)
     public String registerCandidate(@RequestBody ObjectNode candidateData) {
     	candidateDetailsService.registerCandidate(JsonUtil.getCandidateDetailsFromRequest(candidateData));
         return "Success";    
