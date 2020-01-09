@@ -42,7 +42,7 @@ public class EmailUtil {
 		            message.setFrom(new InternetAddress("tussharak@gmail.com"));
 		            message.setRecipients(
 		                    Message.RecipientType.TO,
-		                    InternetAddress.parse("ksbhanegaonkar@gmail.com")
+		                    InternetAddress.parse(to)
 		            );
 		            message.setSubject(subject);
 		            message.setText(mailBody);
