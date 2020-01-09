@@ -1,14 +1,10 @@
 package com.scodeen.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,12 +28,8 @@ public class CRMUser extends CommonAuditColumns{
 	private String contactNumber;
 	@Column(name="EMAIL")
 	private String email;
-	@Column(name="CITY_ID")
-	private int cityId;
+
 	
-	@OneToOne
-	@JoinColumn(name = "CITY_ID", insertable = false,updatable = false)
-	private City city;
 
 	public int getUserId() {
 		return userId;
@@ -104,24 +96,8 @@ public class CRMUser extends CommonAuditColumns{
 		this.email = email;
 	}
 
-	public int getCityId() {
-		return cityId;
-	}
-
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
 
 
-	
 	
 	
 	

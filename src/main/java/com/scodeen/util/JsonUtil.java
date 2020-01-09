@@ -75,12 +75,13 @@ public class JsonUtil {
 		candidateDetails.setMiddleName(data.get("mname").asText());
 		candidateDetails.setCourseId(2);
 		candidateDetails.setBatchId(2);
-		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
+		candidateDetails.setContactNumber(data.get("contactNumber").asText());
 		candidateDetails.setEmail(data.get("email").asText());
-		candidateDetails.setCityId(2);
+		candidateDetails.setCity(data.get("city").asText());
+		candidateDetails.setAddress(data.get("address").asText());
 		candidateDetails.setIsRegistered(0);
 		candidateDetails.setIsWorking(0);
-		candidateDetails.setWorkingField(0);
+		candidateDetails.setWorkingField("Test working field");
 		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
 		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
 		candidateDetails.setRemarks("Very good");

@@ -25,13 +25,13 @@ public class CandidateDetails extends CommonAuditColumns{
 	@Column(name="MIDDLE_NAME")
 	private String middleName;
 	@Column(name="CONTACT_NUMBER")
-	private Date contactNumber;
+	private String contactNumber;
 	@Column(name="EMAIL")
 	private String email;
-	@Column(name="CITY_ID")
-	private int cityId;
-	@Column(name = "COURSE_ID")
-	private int courseId;
+	@Column(name = "CITY")
+	private String city;
+	@Column(name = "ADDRESS")
+	private String address;
 	@Column(name = "BATCH_ID")
 	private int batchId;
 	@Column(name = "IS_REGISTER")
@@ -39,15 +39,12 @@ public class CandidateDetails extends CommonAuditColumns{
 	@Column(name = "IS_WORKING")
 	private int isWorking;
 	@Column(name = "WOKRING_FIELD")
-	private int workingField;
+	private String workingField;
 	@Column(name = "REGISTER_DATE")
 	private Date registerDate;
 	@Column(name = "ENQUIRY_DATE")
 	private Date enquiryDate;
 	
-	@OneToOne
-	@JoinColumn(name = "CITY_ID", insertable = false,updatable = false)
-	private City city;
 
 	public int getCandidateId() {
 		return candidateId;
@@ -82,11 +79,11 @@ public class CandidateDetails extends CommonAuditColumns{
 		this.middleName = middleName;
 	}
 
-	public Date getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(Date contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -98,31 +95,7 @@ public class CandidateDetails extends CommonAuditColumns{
 		this.email = email;
 	}
 
-	public int getCityId() {
-		return cityId;
-	}
 
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
-
-
-	public int getCourseId() {
-		return courseId;
-	}
-
-
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
 
 
 	public int getBatchId() {
@@ -155,12 +128,12 @@ public class CandidateDetails extends CommonAuditColumns{
 	}
 
 
-	public int getWorkingField() {
+	public String getWorkingField() {
 		return workingField;
 	}
 
 
-	public void setWorkingField(int workingField) {
+	public void setWorkingField(String workingField) {
 		this.workingField = workingField;
 	}
 
@@ -187,6 +160,26 @@ public class CandidateDetails extends CommonAuditColumns{
 
 	public void setCandidateId(int candidateId) {
 		this.candidateId = candidateId;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 

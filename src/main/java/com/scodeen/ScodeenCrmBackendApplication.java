@@ -1,14 +1,13 @@
 package com.scodeen;
 
-import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.scodeen.entity.CandidateDetails;
-import com.scodeen.entity.PaymentDetails;
+import com.scodeen.entity.Batch;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
@@ -27,12 +26,6 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 	TestUserRepo userRepo;
 	@Autowired
 	CRMUserRepo crmUserRepo;
-	@Autowired
-	CityRepo cityRepo;
-	@Autowired
-	StateRepo stateRepo;
-	@Autowired
-	CountryRepo countryRepo;
 	@Autowired
 	BatchRepo batchRepo;
 	@Autowired
@@ -173,6 +166,9 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		paymentDetails.setCreatedBy(15);
 //		paymentDetails.setModifiedBy(15);
 //		paymentDetailRepo.save(paymentDetails);
+		
+		List<Batch> batches =  batchRepo.findAll();
+		System.out.println(batches);
 
 		
 

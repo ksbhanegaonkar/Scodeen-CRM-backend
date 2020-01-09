@@ -50,6 +50,13 @@ public class Batch extends CommonAuditColumns{
 	public int getBatchId() {
 		return batchId;
 	}
+	@Override
+	public String toString() {
+		return "Batch [batchId=" + batchId + ", courseId=" + courseId + ", batchName=" + batchName + ", batchSyllabus="
+				+ batchSyllabus + ", batchDescription=" + batchDescription + "]";
+	}
+	
+	
 	
 	
 	
