@@ -14,11 +14,12 @@ import org.apache.http.util.EntityUtils;
 
 public class SMSUtil {
 	private static final String API_KEY = "F8z1kMcVYDriJEUZ25QK4vaPtXuojOWGyhsLexNqbCARIdH9S7LK1phWJ0urNdwVnM26z8Dq9Hbm54Ie";
+	private static final String SMS_SERVER_BASE_URL = "https://www.fast2sms.com/dev/bulk";
 	public static void sendSMS(String message,String numberList){
 		
 		try {
 
-        HttpPost post = new HttpPost("https://www.fast2sms.com/dev/bulk");
+        HttpPost post = new HttpPost(SMS_SERVER_BASE_URL);
 
         // add request parameter, form parameters
         List<NameValuePair> urlParameters = new ArrayList<>();
