@@ -73,7 +73,6 @@ public class JsonUtil {
 		candidateDetails.setFirstName(data.get("fname").asText());
 		candidateDetails.setLastName(data.get("lname").asText());
 		candidateDetails.setMiddleName(data.get("mname").asText());
-		candidateDetails.setCourseId(2);
 		candidateDetails.setBatchId(2);
 		candidateDetails.setContactNumber(data.get("contactNumber").asText());
 		candidateDetails.setEmail(data.get("email").asText());

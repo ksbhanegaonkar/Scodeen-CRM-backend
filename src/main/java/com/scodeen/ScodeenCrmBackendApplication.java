@@ -11,12 +11,9 @@ import com.scodeen.entity.Batch;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
-import com.scodeen.repository.CityRepo;
-import com.scodeen.repository.CountryRepo;
 import com.scodeen.repository.CourseRepo;
 import com.scodeen.repository.FeatureRepo;
 import com.scodeen.repository.PaymentDetailRepo;
-import com.scodeen.repository.StateRepo;
 import com.scodeen.repository.TestUserRepo;
 
 @SpringBootApplication
