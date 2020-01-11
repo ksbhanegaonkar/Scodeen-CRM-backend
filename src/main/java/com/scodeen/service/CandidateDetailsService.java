@@ -44,9 +44,9 @@ public class CandidateDetailsService {
 			};
 		}
 		if(fname != null)
-			list = list.parallelStream().filter(c -> c.getName().contains(fname)).collect(Collectors.toList());
+			list = list.parallelStream().filter(c -> c.getName().toUpperCase().contains(fname.toUpperCase())).collect(Collectors.toList());
 		if(lname != null)
-			list = list.parallelStream().filter(c -> c.getName().contains(lname)).collect(Collectors.toList());
+			list = list.parallelStream().filter(c -> c.getName().toUpperCase().contains(lname.toUpperCase())).collect(Collectors.toList());
 		return list;
 	}
 }
