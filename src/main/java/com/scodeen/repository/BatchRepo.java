@@ -6,4 +6,5 @@ import com.scodeen.entity.Batch;
 
 public interface BatchRepo extends JpaRepository<Batch, Integer>{
 	Batch getBatchByBatchId(int batchId);
+	Batch getBatchByBatchName(String batchName);
 }

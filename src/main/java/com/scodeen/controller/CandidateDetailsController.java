@@ -37,10 +37,10 @@ public class CandidateDetailsController {
     }
     
     @PostMapping("/searchcandidate")
-    public String searchCandidate(@RequestBody ObjectNode c) {
-    	String fName = c.get("fname").asText();
-    	String lName = c.get("lname").asText();
+    public ArrayNode searchCandidate(@RequestBody ObjectNode c) {
+    	String fName = c.get("fname")==null?null:c.get("fname").asText();
+    	String lName = c.get("lname")==null?null:c.get("lname").asText();
     	ArrayNode batches = (ArrayNode) c.get("batches");
-        return "Success";    
+    	return JsonUtil.getSearchCandidateModelListAsJsonArray(candidateDetailsService.searchCandidates(fName, lName, JsonUtil.getBatchNameListFromBatchJsonArray(batches)));
      }
 }

@@ -1,12 +1,17 @@
 package com.scodeen.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.scodeen.entity.Batch;
 import com.scodeen.entity.CandidateDetails;
+import com.scodeen.model.CandidateSearchModel;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
 import com.scodeen.util.EmailUtil;
@@ -30,8 +35,18 @@ public class CandidateDetailsService {
 		return batchRepo.findAll();
 	}
 	
-	public List<CandidateDetails> searchCandidates(String fname,String lname, String mname,List<Batch> batches){
+	public List<CandidateSearchModel> searchCandidates(String fname,String lname,List<String> batches){
+		List<CandidateSearchModel> list = new ArrayList<>();
 		
-		return null;
+		for(String batchName : batches) {
+			for(CandidateDetails c : batchRepo.getBatchByBatchName(batchName).getCandidates()) {
+				list.add(new CandidateSearchModel(c.getFirstName()+" "+c.getLastName(), batchName, c.getIsRegistered()));
+			};
+		}
+		if(fname != null)
+			list = list.parallelStream().filter(c -> c.getName().contains(fname)).collect(Collectors.toList());
+		if(lname != null)
+			list = list.parallelStream().filter(c -> c.getName().contains(lname)).collect(Collectors.toList());
+		return list;
 	}
 }

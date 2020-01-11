@@ -2,8 +2,11 @@ package com.scodeen.util;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner.noneDSA;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +14,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.scodeen.entity.Batch;
 import com.scodeen.entity.CandidateDetails;
+import com.scodeen.model.CandidateSearchModel;
 
 public class JsonUtil {
 	
@@ -91,6 +95,8 @@ public class JsonUtil {
 		
 		return candidateDetails;
 	}
+	
+	
 
 	public static ArrayNode getBatchJsonListFromBatchList(List<Batch> batches) {
 		ArrayNode arrayNode = mapper.createArrayNode();
@@ -119,6 +125,29 @@ public class JsonUtil {
 		node.put("isregistered", c.getIsRegistered());
 		node.put("batch", "Test batch");
 		return node;
+	}
+	
+	public static List<String> getBatchNameListFromBatchJsonArray(ArrayNode arrayNode){
+		List<String> batchIdList = new ArrayList<>();
+		for(JsonNode node : arrayNode) {
+			batchIdList.add(node.get("item_text").asText());
+		}
+		return batchIdList;
+	}
+	
+	public static ArrayNode getSearchCandidateModelListAsJsonArray(List<CandidateSearchModel> c) {
+		ArrayNode n = mapper.createArrayNode();
+		for(CandidateSearchModel cd : c) {
+			n.add(createJsonObjectFromCandidateSearchModel(cd));
+		}
+		return n;
+	}
+	public static ObjectNode createJsonObjectFromCandidateSearchModel(CandidateSearchModel c) {
+		ObjectNode n = mapper.createObjectNode();
+		n.put("name", c.getName());
+		n.put("batch",c.getBatchName());
+		n.put("isregistered", c.getIsRegistered());
+		return n;
 	}
 	
 }
