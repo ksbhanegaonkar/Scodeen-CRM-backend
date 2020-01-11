@@ -132,14 +132,19 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		applicationFeature.setCreatedBy(15);
 //		applicationFeature.setModifiedBy(15);
 //		featureRepo.save(applicationFeature);
-		
-//		Batch batch = batchRepo.getBatchByBatchId(15);
+//		
+//		Batch batch = batchRepo.getBatchByBatchId(14);
+//		Batch batch1 = batchRepo.getBatchByBatchId(15);
+//		Batch batch2 = batchRepo.getBatchByBatchId(16);
+//		Batch batch3 = batchRepo.getBatchByBatchId(17);
+//		Batch batch4 = batchRepo.getBatchByBatchId(18);
+//		Batch batch5 = batchRepo.getBatchByBatchId(19);
 //		CandidateDetails d = batch.getCandidates().get(0);
 //		System.out.println("Batch is ::: "+batch.getCandidates());
 
 //		CandidateDetails candidateDetails = new CandidateDetails();
-//		candidateDetails.setFirstName("Kedar6");
-//		candidateDetails.setLastName("Bhanegaonakr");
+//		candidateDetails.setFirstName("Virendra");
+//		candidateDetails.setLastName("Sehewagh");
 //		candidateDetails.setMiddleName("Sudhir");
 //		candidateDetails.setContactNumber("9922488571");
 //		candidateDetails.setEmail("testmail");
@@ -154,6 +159,11 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		candidateDetails.setCreatedBy(15);
 //		candidateDetails.setModifiedBy(15);
 //		candidateDetails.getBatches().add(batch);
+//		candidateDetails.getBatches().add(batch1);
+//		candidateDetails.getBatches().add(batch2);
+//		candidateDetails.getBatches().add(batch3);
+//		candidateDetails.getBatches().add(batch4);
+//		candidateDetails.getBatches().add(batch5);
 //		candidateDetailsRepo.save(candidateDetails);
 		
 //		PaymentDetails paymentDetails = new PaymentDetails();
