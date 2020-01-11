@@ -14,9 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 
 @Entity
 @Table(name = "CANDIDATE_DETAILS")
+@Transactional
 public class CandidateDetails extends CommonAuditColumns{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

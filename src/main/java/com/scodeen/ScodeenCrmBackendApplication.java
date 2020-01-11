@@ -133,8 +133,9 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		applicationFeature.setModifiedBy(15);
 //		featureRepo.save(applicationFeature);
 		
-		Batch batch = batchRepo.getBatchByBatchId(15);
-		System.out.println("Batch is ::: "+batch);
+//		Batch batch = batchRepo.getBatchByBatchId(15);
+//		CandidateDetails d = batch.getCandidates().get(0);
+//		System.out.println("Batch is ::: "+batch.getCandidates());
 
 //		CandidateDetails candidateDetails = new CandidateDetails();
 //		candidateDetails.setFirstName("Kedar6");

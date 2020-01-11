@@ -37,8 +37,10 @@ public class CandidateDetailsController {
     }
     
     @PostMapping("/searchcandidate")
-    public String searchCandidate(@RequestBody ObjectNode candidateSearchData) {
-    	System.out.println(candidateSearchData.get("batches"));
+    public String searchCandidate(@RequestBody ObjectNode c) {
+    	String fName = c.get("fname").asText();
+    	String lName = c.get("lname").asText();
+    	ArrayNode batches = (ArrayNode) c.get("batches");
         return "Success";    
      }
 }
