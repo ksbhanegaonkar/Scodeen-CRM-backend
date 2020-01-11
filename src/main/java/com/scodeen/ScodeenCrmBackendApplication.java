@@ -1,6 +1,6 @@
 package com.scodeen;
 
-import java.util.List;
+import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.scodeen.entity.Batch;
+import com.scodeen.entity.CandidateDetails;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
@@ -99,8 +100,8 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		System.out.println(user);
 		
 //		Batch batch = new Batch();
-//		batch.setCourseId(2);
-//		batch.setBatchName("Test batch");
+//		batch.setBatchName("Yoga");
+//		batch.setCourseId(14);
 //		batch.setBatchSyllabus("Test syllabus");
 //		batch.setBatchDescription("Test description");
 //		batch.setRemarks("Very good");
@@ -109,6 +110,7 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		batch.setCreatedBy(15);
 //		batch.setModifiedBy(15);
 //		batchRepo.save(batch);
+		
 		
 //		Course course = new Course();
 //		course.setCourseName("Test course");
@@ -130,19 +132,19 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		applicationFeature.setCreatedBy(15);
 //		applicationFeature.setModifiedBy(15);
 //		featureRepo.save(applicationFeature);
+		
+		Batch batch = batchRepo.getBatchByBatchId(15);
+		System.out.println("Batch is ::: "+batch);
 
 //		CandidateDetails candidateDetails = new CandidateDetails();
-//		candidateDetails.setFirstName("Kedar");
+//		candidateDetails.setFirstName("Kedar6");
 //		candidateDetails.setLastName("Bhanegaonakr");
 //		candidateDetails.setMiddleName("Sudhir");
-//		candidateDetails.setCourseId(2);
-//		candidateDetails.setBatchId(2);
-//		candidateDetails.setContactNumber(new Date(System.currentTimeMillis()));
+//		candidateDetails.setContactNumber("9922488571");
 //		candidateDetails.setEmail("testmail");
-//		candidateDetails.setCityId(2);
 //		candidateDetails.setIsRegistered(0);
 //		candidateDetails.setIsWorking(0);
-//		candidateDetails.setWorkingField(0);
+//		candidateDetails.setWorkingField("Test field");
 //		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
 //		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
 //		candidateDetails.setRemarks("Very good");
@@ -150,6 +152,7 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		candidateDetails.setModifiedOn(new Date(System.currentTimeMillis()));
 //		candidateDetails.setCreatedBy(15);
 //		candidateDetails.setModifiedBy(15);
+//		candidateDetails.getBatches().add(batch);
 //		candidateDetailsRepo.save(candidateDetails);
 		
 //		PaymentDetails paymentDetails = new PaymentDetails();
@@ -164,8 +167,8 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		paymentDetails.setModifiedBy(15);
 //		paymentDetailRepo.save(paymentDetails);
 		
-		List<Batch> batches =  batchRepo.findAll();
-		System.out.println(batches);
+//		List<Batch> batches =  batchRepo.findAll();
+//		System.out.println(batches);
 
 		
 

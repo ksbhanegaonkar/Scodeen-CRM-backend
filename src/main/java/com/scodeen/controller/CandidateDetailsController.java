@@ -31,9 +31,14 @@ public class CandidateDetailsController {
         return "Candidate id is :::"+id;    
         }
     
-    
     @GetMapping(value = "/getbatchlist")
     public ArrayNode getBatchList() {
     	return JsonUtil.getBatchJsonListFromBatchList(candidateDetailsService.getBatchList());
     }
+    
+    @PostMapping("/searchcandidate")
+    public String searchCandidate(@RequestBody ObjectNode candidateSearchData) {
+    	System.out.println(candidateSearchData.get("batches"));
+        return "Success";    
+     }
 }

@@ -74,7 +74,6 @@ public class JsonUtil {
 		candidateDetails.setFirstName(data.get("fname").asText());
 		candidateDetails.setLastName(data.get("lname").asText());
 		candidateDetails.setMiddleName(data.get("mname").asText());
-		candidateDetails.setBatchId(2);
 		candidateDetails.setContactNumber(data.get("contactNumber").asText());
 		candidateDetails.setEmail(data.get("email").asText());
 		candidateDetails.setCity(data.get("city").asText());
@@ -104,6 +103,23 @@ public class JsonUtil {
 		return arrayNode;
 	}
 	
+	public static ArrayNode getCandidateSearchJsonListFromCandidateList(List<CandidateDetails> candidateDetails) {
+		
+		ArrayNode arrayNode = mapper.createArrayNode();
+		for(CandidateDetails candidate : candidateDetails) {
+			arrayNode.add(getCandidateDetailAsSearchJsonObject(candidate));
+		}
+		return arrayNode;
+	}
+	
+	
+	public static ObjectNode getCandidateDetailAsSearchJsonObject(CandidateDetails c) {
+		ObjectNode node = mapper.createObjectNode();
+		node.put("name", c.getFirstName()+" "+c.getLastName());
+		node.put("isregistered", c.getIsRegistered());
+		node.put("batch", "Test batch");
+		return node;
+	}
 	
 }
 

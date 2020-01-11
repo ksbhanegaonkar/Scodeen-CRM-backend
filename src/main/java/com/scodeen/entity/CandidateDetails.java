@@ -1,14 +1,18 @@
 package com.scodeen.entity;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,8 +36,6 @@ public class CandidateDetails extends CommonAuditColumns{
 	private String city;
 	@Column(name = "ADDRESS")
 	private String address;
-	@Column(name = "BATCH_ID")
-	private int batchId;
 	@Column(name = "IS_REGISTER")
 	private int isRegistered;
 	@Column(name = "IS_WORKING")
@@ -44,6 +46,15 @@ public class CandidateDetails extends CommonAuditColumns{
 	private Date registerDate;
 	@Column(name = "ENQUIRY_DATE")
 	private Date enquiryDate;
+	
+
+	
+	@ManyToMany
+	@JoinTable(name = "Candidate_batch",
+	joinColumns = @JoinColumn(name = "CANDIDATE_ID"),
+	inverseJoinColumns = @JoinColumn(name = "BATCH_ID"))
+	List<Batch> batches = new ArrayList<>();
+	
 	
 
 	public int getCandidateId() {
@@ -97,15 +108,6 @@ public class CandidateDetails extends CommonAuditColumns{
 
 
 
-
-	public int getBatchId() {
-		return batchId;
-	}
-
-
-	public void setBatchId(int batchId) {
-		this.batchId = batchId;
-	}
 
 
 	public int getIsRegistered() {
@@ -180,6 +182,16 @@ public class CandidateDetails extends CommonAuditColumns{
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+
+	public List<Batch> getBatches() {
+		return batches;
+	}
+
+
+	public void setBatches(List<Batch> batches) {
+		this.batches = batches;
 	}
 
 

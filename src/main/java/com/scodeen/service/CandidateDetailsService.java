@@ -29,4 +29,9 @@ public class CandidateDetailsService {
 	public List<Batch> getBatchList() {
 		return batchRepo.findAll();
 	}
+	
+	public List<CandidateDetails> searchCandidates(String fname,String lname, String mname,List<Batch> batches){
+		
+		return null;
+	}
 }
