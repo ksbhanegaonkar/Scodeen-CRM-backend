@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.scodeen.entity.Batch;
 import com.scodeen.entity.CandidateDetails;
 
 public class JsonUtil {
@@ -92,7 +93,16 @@ public class JsonUtil {
 		return candidateDetails;
 	}
 
-
+	public static ArrayNode getBatchJsonListFromBatchList(List<Batch> batches) {
+		ArrayNode arrayNode = mapper.createArrayNode();
+		for(int i=0;i<batches.size();i++) {
+			ObjectNode node = mapper.createObjectNode();
+			node.put("item_id", i+1);
+			node.put("item_text",batches.get(i).getBatchName());
+			arrayNode.add(node);
+		}
+		return arrayNode;
+	}
 	
 	
 }
