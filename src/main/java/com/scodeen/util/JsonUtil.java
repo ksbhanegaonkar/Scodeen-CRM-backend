@@ -75,15 +75,16 @@ public class JsonUtil {
 	public static CandidateDetails getCandidateDetailsFromRequest(ObjectNode data) {
 		CandidateDetails candidateDetails = new CandidateDetails();
 		
-		candidateDetails.setFirstName(data.get("fname").asText());
-		candidateDetails.setLastName(data.get("lname").asText());
-		candidateDetails.setMiddleName(data.get("mname").asText());
-		candidateDetails.setContactNumber(data.get("contactNumber").asText());
-		candidateDetails.setEmail(data.get("email").asText());
-		//candidateDetails.setAddress(data.get("address").asText());
+		candidateDetails.setFirstName(data.get("fname")!=null?data.get("fname").asText():null);
+		candidateDetails.setLastName(data.get("lname")!=null?data.get("lname").asText():null);
+		candidateDetails.setMiddleName(data.get("mname")!=null?data.get("mname").asText():null);
+		candidateDetails.setContactNumber(data.get("contactNumber")!=null?data.get("contactNumber").asText():null);
+		candidateDetails.setEmail(data.get("email")!=null?data.get("email").asText():null);
+		candidateDetails.setAddress(data.get("address")!=null?data.get("address").asText():null);
+		candidateDetails.setCity(data.get("city")!=null?data.get("city").asText():null);
 		candidateDetails.setIsRegistered(0);
 		candidateDetails.setIsWorking(0);
-		candidateDetails.setWorkingField("Test working field");
+		candidateDetails.setWorkingField(data.get("workingField")!=null?data.get("workingField").asText():null);
 		candidateDetails.setEnquiryDate(new Date(System.currentTimeMillis()));
 		candidateDetails.setRegisterDate(new Date(System.currentTimeMillis()));
 		candidateDetails.setRemarks("Very good");
