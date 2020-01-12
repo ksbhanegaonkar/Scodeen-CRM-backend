@@ -21,7 +21,7 @@ public class CandidateDetailsController {
 	
     @PostMapping("/registercandidate")
     public String registerCandidate(@RequestBody ObjectNode candidateData) {
-    	candidateDetailsService.registerCandidate(JsonUtil.getCandidateDetailsFromRequest(candidateData));
+    	candidateDetailsService.registerCandidate(JsonUtil.getCandidateDetailsFromRequest(candidateData),JsonUtil.getBatchNamesFromCandidateDetails(candidateData));
         return "Success";    
         }
     

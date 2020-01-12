@@ -80,8 +80,7 @@ public class JsonUtil {
 		candidateDetails.setMiddleName(data.get("mname").asText());
 		candidateDetails.setContactNumber(data.get("contactNumber").asText());
 		candidateDetails.setEmail(data.get("email").asText());
-		candidateDetails.setCity(data.get("city").asText());
-		candidateDetails.setAddress(data.get("address").asText());
+		//candidateDetails.setAddress(data.get("address").asText());
 		candidateDetails.setIsRegistered(0);
 		candidateDetails.setIsWorking(0);
 		candidateDetails.setWorkingField("Test working field");
@@ -92,6 +91,8 @@ public class JsonUtil {
 		candidateDetails.setModifiedOn(new Date(System.currentTimeMillis()));
 		candidateDetails.setCreatedBy(15);
 		candidateDetails.setModifiedBy(15);
+		
+
 		
 		return candidateDetails;
 	}
@@ -148,6 +149,11 @@ public class JsonUtil {
 		n.put("batch",c.getBatchName());
 		n.put("isregistered", c.getIsRegistered());
 		return n;
+	}
+
+	public static List<String> getBatchNamesFromCandidateDetails(ObjectNode data) {
+		ArrayNode batchesList = (ArrayNode) data.get("enrolledbatches");
+		return getBatchNameListFromBatchJsonArray(batchesList);
 	}
 	
 }

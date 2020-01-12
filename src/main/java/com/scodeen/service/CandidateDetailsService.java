@@ -1,6 +1,7 @@
 package com.scodeen.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collector;
@@ -25,12 +26,24 @@ public class CandidateDetailsService {
 	@Autowired
 	BatchRepo batchRepo;
 	
-	public void registerCandidate(CandidateDetails candidateDetails) {
+	public void registerCandidate(CandidateDetails candidateDetails,List<String> batchList) {
+		
+		candidateDetails.getBatches().addAll(getBatchListFromBatchNames(batchList));
 		candidateDetailsRepo.save(candidateDetails);
 		SMSUtil.sendSMS("You are registered for batch", candidateDetails.getContactNumber());
 		EmailUtil.sendMail(candidateDetails.getEmail(), "Registered for batch", "Dear candidate, you are registered for batch");
 	}
 	
+	
+	  private Collection<? extends Batch> getBatchListFromBatchNames(List<String> batchNameList) { 
+		 List<Batch> batchList = new ArrayList<>();
+		 for(String name : batchNameList) {
+			 batchList.add( batchRepo.getBatchByBatchName(name));
+		 }
+	  return batchList; 
+	  }
+	 
+
 	public List<Batch> getBatchList() {
 		return batchRepo.findAll();
 	}
@@ -49,4 +62,6 @@ public class CandidateDetailsService {
 			list = list.parallelStream().filter(c -> c.getName().toUpperCase().contains(lname.toUpperCase())).collect(Collectors.toList());
 		return list;
 	}
+
+
 }
