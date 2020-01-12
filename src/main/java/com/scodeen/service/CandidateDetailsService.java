@@ -30,8 +30,8 @@ public class CandidateDetailsService {
 		
 		candidateDetails.getBatches().addAll(getBatchListFromBatchNames(batchList));
 		candidateDetailsRepo.save(candidateDetails);
-		SMSUtil.sendSMS("You are registered for batch", candidateDetails.getContactNumber());
-		EmailUtil.sendMail(candidateDetails.getEmail(), "Registered for batch", "Dear candidate, you are registered for batch");
+		SMSUtil.sendSMS(prepareSMS(candidateDetails), candidateDetails.getContactNumber());
+		EmailUtil.sendMail(candidateDetails.getEmail(), "Registered For SCODDEN Coaching Center", prepareSMS(candidateDetails));
 	}
 	
 	
@@ -62,6 +62,17 @@ public class CandidateDetailsService {
 			list = list.parallelStream().filter(c -> c.getName().toUpperCase().contains(lname.toUpperCase())).collect(Collectors.toList());
 		return list;
 	}
-
+	
+	public String prepareSMS(CandidateDetails c) {
+		StringBuffer b = new StringBuffer();
+		b.append("Dear ");
+		b.append(c.getFirstName());
+		b.append(" ");
+		b.append(c.getLastName());
+		b.append(", you have been successfully registered for ");
+		b.append(c.getBatches().stream().map(cd -> cd.getBatchName()).collect(Collectors.joining(", ")));
+		b.append(" batches. Paid amount is 1000. Remaining amount is 2000. Thank you.");
+		return b.toString();
+	}
 
 }
