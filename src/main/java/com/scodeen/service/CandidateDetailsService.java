@@ -35,6 +35,16 @@ public class CandidateDetailsService {
 		EmailUtil.sendMail(candidateDetails.getEmail(), "Registered For SCODDEN Coaching Center", prepareSMS(candidateDetails));
 	}
 	
+	public void payAmount(int candidateId, int batchId, int amount) {
+		CandidateDetails c = candidateDetailsRepo.getCandidateDetailsByCandidateId(candidateId);
+		for(PaymentDetails pd : c.getPaymentDetails()) {
+			if(pd.getBatchId() == batchId) {
+				pd.setFeesPaid(pd.getFeesPaid()+amount);
+				break;
+			}
+		}
+		candidateDetailsRepo.save(c);
+	}
 	
 	  private Collection<? extends Batch> getBatchListFromBatchNames(List<String> batchNameList) { 
 		 List<Batch> batchList = new ArrayList<>();

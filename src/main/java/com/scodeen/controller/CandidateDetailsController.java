@@ -42,4 +42,11 @@ public class CandidateDetailsController {
     	ArrayNode batches = (ArrayNode) c.get("batches");
     	return JsonUtil.getSearchCandidateModelListAsJsonArray(candidateDetailsService.searchCandidates(fName, lName, JsonUtil.getBatchNameListFromBatchJsonArray(batches)));
      }
+    
+    @PostMapping("/payamount")
+    public ObjectNode payamount(@RequestBody ObjectNode candidateData) {
+    	candidateDetailsService.payAmount(candidateData.get("candidate_id").asInt(),candidateData.get("batch_id").asInt(),candidateData.get("amount").asInt());
+        return JsonUtil.getCandidateDetailAsJsonObject(candidateDetailsService.getCandidate(candidateData.get("candidate_id").asInt()));    
+        }
+    
 }
