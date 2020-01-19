@@ -29,3 +29,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# compiled output
+/src/main/webapp/CRM_Frontend_Angular/dist
+/src/main/webapp/CRM_Frontend_Angular/tmp
+/src/main/webapp/CRM_Frontend_Angular/out-tsc
+# Only exists if Bazel was run
+/src/main/webapp/CRM_Frontend_Angular/bazel-out
+
+# dependencies
+/src/main/webapp/CRM_Frontend_Angular/node_modules
+/src/main/webapp/CRM_Frontend_Angular/node
