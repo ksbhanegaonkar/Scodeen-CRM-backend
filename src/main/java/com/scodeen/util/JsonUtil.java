@@ -156,7 +156,7 @@ public class JsonUtil {
 			node.put("paid_fees",p.getFeesPaid());
 			node.put("candidate_id",p.getCandidateId());
 			node.put("batch_id",p.getBatchId());
-			node.put("amount",0);
+			//node.put("amount",0);
 			node.put("remaining_fees",p.getTotalFees() - p.getFeesPaid());
 			arrayNode.add(node);
 		}
