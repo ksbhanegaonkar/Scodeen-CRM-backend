@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 
@@ -57,6 +58,11 @@ public class CandidateDetails extends CommonAuditColumns{
 	inverseJoinColumns = @JoinColumn(name = "BATCH_ID"))
 	List<Batch> batches = new ArrayList<>();
 	
+	
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="CANDIDATE_ID")
+	List<PaymentDetails> paymentDetails = new ArrayList<>();
 	
 
 	public int getCandidateId() {
@@ -194,6 +200,16 @@ public class CandidateDetails extends CommonAuditColumns{
 
 	public void setBatches(List<Batch> batches) {
 		this.batches = batches;
+	}
+
+
+	public List<PaymentDetails> getPaymentDetails() {
+		return paymentDetails;
+	}
+
+
+	public void setPaymentDetails(List<PaymentDetails> paymentDetails) {
+		this.paymentDetails = paymentDetails;
 	}
 
 

@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.scodeen.entity.Batch;
 import com.scodeen.entity.CandidateDetails;
+import com.scodeen.entity.PaymentDetails;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CRMUserRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
@@ -166,9 +167,13 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		candidateDetails.getBatches().add(batch5);
 //		candidateDetailsRepo.save(candidateDetails);
 		
+
+		
+		
+		//Batch batch = batchRepo.getBatchByBatchId(15);
+		
 //		PaymentDetails paymentDetails = new PaymentDetails();
-//		paymentDetails.setCandidateId(2);
-//		paymentDetails.setBatchId(1);
+//		paymentDetails.setBatchId(15);
 //		paymentDetails.setCourseId(2);
 //		paymentDetails.setPaymentDate(new Date(System.currentTimeMillis()));
 //		paymentDetails.setRemarks("Very good");
@@ -176,7 +181,15 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		paymentDetails.setModifiedOn(new Date(System.currentTimeMillis()));
 //		paymentDetails.setCreatedBy(15);
 //		paymentDetails.setModifiedBy(15);
-//		paymentDetailRepo.save(paymentDetails);
+//		paymentDetails.setFeesPaid(1000);
+//		paymentDetails.setTotalFees(10000);
+		//paymentDetailRepo.save(paymentDetails);
+		
+		CandidateDetails c = candidateDetailsRepo.getCandidateDetailsByCandidateId(22);
+		//c.getPaymentDetails().add(paymentDetails);
+		//candidateDetailsRepo.save(c);
+		System.out.println(c.getPaymentDetails());
+		System.out.println(c.getPaymentDetails().get(0).getBatch().getBatchName());
 		
 //		List<Batch> batches =  batchRepo.findAll();
 //		System.out.println(batches);

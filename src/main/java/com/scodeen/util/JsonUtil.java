@@ -138,6 +138,9 @@ public class JsonUtil {
 			ObjectNode node = mapper.createObjectNode();
 			node.put("item_id", i+1);
 			node.put("item_text",batches.get(i).getBatchName());
+			node.put("total_fees",1000);
+			node.put("paid_fees",5000);
+			node.put("remaining_fees",5000);
 			arrayNode.add(node);
 		}
 		return arrayNode;
