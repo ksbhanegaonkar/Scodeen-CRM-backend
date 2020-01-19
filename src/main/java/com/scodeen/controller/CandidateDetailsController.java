@@ -26,9 +26,8 @@ public class CandidateDetailsController {
         }
     
     @GetMapping(value = "/getcandidatedetails/{id}")
-    public String getCandidateDetails(@PathVariable int id) {
-    	
-        return "Candidate id is :::"+id;    
+    public ObjectNode getCandidateDetails(@PathVariable int id) {
+        return JsonUtil.getCandidateDetailAsJsonObject(candidateDetailsService.getCandidate(id));    
         }
     
     @GetMapping(value = "/getbatchlist")

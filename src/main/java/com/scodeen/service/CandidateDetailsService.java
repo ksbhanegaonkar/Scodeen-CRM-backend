@@ -53,7 +53,7 @@ public class CandidateDetailsService {
 		
 		for(String batchName : batches) {
 			for(CandidateDetails c : batchRepo.getBatchByBatchName(batchName).getCandidates()) {
-				list.add(new CandidateSearchModel(c.getFirstName()+" "+c.getLastName(), batchName, c.getIsRegistered()));
+				list.add(new CandidateSearchModel(c.getCandidateId(),c.getFirstName()+" "+c.getLastName(), batchName, c.getIsRegistered()));
 			};
 		}
 		if(fname != null)
@@ -73,6 +73,10 @@ public class CandidateDetailsService {
 		b.append(c.getBatches().stream().map(cd -> cd.getBatchName()).collect(Collectors.joining(", ")));
 		b.append(" batches. Paid amount is 1000. Remaining amount is 2000. Thank you.");
 		return b.toString();
+	}
+	
+	public CandidateDetails getCandidate(int id) {
+		return candidateDetailsRepo.getCandidateDetailsByCandidateId(id);
 	}
 
 }

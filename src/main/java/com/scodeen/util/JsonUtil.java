@@ -98,7 +98,39 @@ public class JsonUtil {
 		return candidateDetails;
 	}
 	
+	public static ObjectNode getCandidateDetailAsJsonObject(CandidateDetails cd) {
+//	    fname : string;
+//	    mname : string;
+//	    lname : string;
+//	    enrolledbatches : any;
+//	    contactNumber : string; 
+//	    email : string;
+//	    city:string;
+//	    isRegistered : number;
+//	    isWorking : number;
+//	    workingField : string;
+//	    enquiryDate : number;
+//	    registerDate : number;
+//	    address:string;
+		ObjectNode n = mapper.createObjectNode();
+		n.put("fname", cd.getFirstName());
+		n.put("mname", cd.getMiddleName());
+		n.put("lname", cd.getLastName());
+		n.put("contactNumber",cd.getContactNumber() );
+		n.put("email",cd.getEmail() );
+		n.put("city",cd.getCity() );
+		n.put("isRegistered",cd.getIsRegistered() );
+		n.put("isWorking",cd.getIsWorking() );
+		n.put("workingField",cd.getWorkingField() );
+		n.put("enquiryDate",cd.getEnquiryDate().toString());
+		n.put("registerDate",cd.getIsRegistered() );
+		n.put("address",cd.getAddress() );
+		n.set("enrolledbatches",getBatchJsonListFromBatchList(cd.getBatches()));
 	
+		return n;
+	}
+	
+
 
 	public static ArrayNode getBatchJsonListFromBatchList(List<Batch> batches) {
 		ArrayNode arrayNode = mapper.createArrayNode();
@@ -146,6 +178,7 @@ public class JsonUtil {
 	}
 	public static ObjectNode createJsonObjectFromCandidateSearchModel(CandidateSearchModel c) {
 		ObjectNode n = mapper.createObjectNode();
+		n.put("id", c.getId());
 		n.put("name", c.getName());
 		n.put("batch",c.getBatchName());
 		n.put("isregistered", c.getIsRegistered());
