@@ -34,6 +34,23 @@ public class PaymentDetails extends CommonAuditColumns{
 	@Column(name = "FEES_PAID")
 	private int feesPaid;
 	
+	
+	
+	public PaymentDetails() {
+		
+
+	}
+	
+	
+	public PaymentDetails(int candidateId, int batchId, int totalFees, int feesPaid) {
+		super();
+		this.candidateId = candidateId;
+		this.batchId = batchId;
+		this.totalFees = totalFees;
+		this.feesPaid = feesPaid;
+	}
+
+
 	@ManyToOne
 	@JoinColumn(name="CANDIDATE_ID", insertable = false, updatable = false)
 	CandidateDetails candidateDetails;

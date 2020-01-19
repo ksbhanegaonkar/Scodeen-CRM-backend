@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.scodeen.entity.Batch;
 import com.scodeen.entity.CandidateDetails;
+import com.scodeen.entity.PaymentDetails;
 import com.scodeen.model.CandidateSearchModel;
 
 public class JsonUtil {
@@ -126,7 +127,7 @@ public class JsonUtil {
 		n.put("registerDate",cd.getIsRegistered() );
 		n.put("address",cd.getAddress() );
 		n.set("enrolledbatches",getBatchJsonListFromBatchList(cd.getBatches()));
-	
+		n.set("paymentDetails", getPaymentJsonListFromPaymentList(cd.getPaymentDetails()));
 		return n;
 	}
 	
@@ -138,9 +139,22 @@ public class JsonUtil {
 			ObjectNode node = mapper.createObjectNode();
 			node.put("item_id", i+1);
 			node.put("item_text",batches.get(i).getBatchName());
-			node.put("total_fees",1000);
-			node.put("paid_fees",5000);
-			node.put("remaining_fees",5000);
+			arrayNode.add(node);
+		}
+		return arrayNode;
+	}
+	
+	public static ArrayNode getPaymentJsonListFromPaymentList(List<PaymentDetails> pd) {
+		
+		ArrayNode arrayNode = mapper.createArrayNode();
+		for(int i=0;i<pd.size();i++) {
+			ObjectNode node = mapper.createObjectNode();
+			PaymentDetails p = pd.get(i);
+			node.put("item_id", i+1);
+			node.put("item_text",p.getBatch().getBatchName());
+			node.put("total_fees",p.getTotalFees());
+			node.put("paid_fees",p.getFeesPaid());
+			node.put("remaining_fees",p.getTotalFees() - p.getFeesPaid());
 			arrayNode.add(node);
 		}
 		return arrayNode;

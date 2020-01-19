@@ -1,10 +1,9 @@
 package com.scodeen.service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.scodeen.entity.Batch;
 import com.scodeen.entity.CandidateDetails;
+import com.scodeen.entity.PaymentDetails;
 import com.scodeen.model.CandidateSearchModel;
 import com.scodeen.repository.BatchRepo;
 import com.scodeen.repository.CandidateDetailsRepo;
@@ -28,7 +28,8 @@ public class CandidateDetailsService {
 	
 	public void registerCandidate(CandidateDetails candidateDetails,List<String> batchList) {
 		
-		candidateDetails.getBatches().addAll(getBatchListFromBatchNames(batchList));
+		//candidateDetails.getBatches().addAll(getBatchListFromBatchNames(batchList));
+		upateBatchAndPaymentDetails(candidateDetails,batchList);
 		candidateDetailsRepo.save(candidateDetails);
 		SMSUtil.sendSMS(prepareSMS(candidateDetails), candidateDetails.getContactNumber());
 		EmailUtil.sendMail(candidateDetails.getEmail(), "Registered For SCODDEN Coaching Center", prepareSMS(candidateDetails));
@@ -41,6 +42,24 @@ public class CandidateDetailsService {
 			 batchList.add( batchRepo.getBatchByBatchName(name));
 		 }
 	  return batchList; 
+	  }
+	  
+	  private void upateBatchAndPaymentDetails(CandidateDetails cd ,List<String> batchNameList) { 
+		 List<Batch> batchList = new ArrayList<>();
+		 List<PaymentDetails> paymentDetails = new ArrayList<>();
+		 for(String name : batchNameList) {
+			 Batch b = batchRepo.getBatchByBatchName(name);
+			 batchList.add(b);
+			 PaymentDetails p = new PaymentDetails(cd.getCandidateId(), b.getBatchId(), 1000, 0);
+			 p.setCreatedOn(new Date(System.currentTimeMillis()));
+			 p.setModifiedOn(new Date(System.currentTimeMillis()));
+			 p.setPaymentDate(new Date(System.currentTimeMillis()));
+			 p.setCreatedBy(15);
+			 p.setModifiedBy(15);
+			 paymentDetails.add(p);
+		 }
+		 cd.getBatches().addAll(batchList);
+		 cd.getPaymentDetails().addAll(paymentDetails);
 	  }
 	 
 

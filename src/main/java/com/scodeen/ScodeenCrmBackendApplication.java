@@ -185,11 +185,11 @@ public class ScodeenCrmBackendApplication implements CommandLineRunner {
 //		paymentDetails.setTotalFees(10000);
 		//paymentDetailRepo.save(paymentDetails);
 		
-		CandidateDetails c = candidateDetailsRepo.getCandidateDetailsByCandidateId(22);
-		//c.getPaymentDetails().add(paymentDetails);
-		//candidateDetailsRepo.save(c);
-		System.out.println(c.getPaymentDetails());
-		System.out.println(c.getPaymentDetails().get(0).getBatch().getBatchName());
+//		CandidateDetails c = candidateDetailsRepo.getCandidateDetailsByCandidateId(22);
+//		c.getPaymentDetails().add(paymentDetails);
+//		candidateDetailsRepo.save(c);
+//		System.out.println(c.getPaymentDetails());
+//		System.out.println(c.getPaymentDetails().get(0).getBatch().getBatchName());
 		
 //		List<Batch> batches =  batchRepo.findAll();
 //		System.out.println(batches);
